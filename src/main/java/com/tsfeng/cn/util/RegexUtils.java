@@ -38,6 +38,14 @@ public class RegexUtils {
         return isMatch(RegexConsts.CHINESE_REGEX, input);
     }
 
+    /**
+     * 合法的名字（字母开头，允许5-16字节，允许字母数字下划线）
+     */
+    public static boolean isLegalAccount(String input) {
+        return isMatch(RegexConsts.LEGAL_ACCOUNT_REGEX, input);
+    }
+
+
     public static boolean isMatch(String regex, String input) {
         return input != null && input.length() > 0 && Pattern.matches(regex, input);
     }

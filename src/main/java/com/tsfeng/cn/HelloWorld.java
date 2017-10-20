@@ -14,5 +14,6 @@ public class HelloWorld {
         System.out.println("isUrl:" + RegexUtils.isUrl("https://b"));
         System.out.println("isIpAddress:" + RegexUtils.isIpAddress("192.111.1.12"));
         System.out.println("isChinese:" + RegexUtils.isChinese("中"));
+        System.out.println("isLegalAccount:" + RegexUtils.isLegalAccount("aaaaabbbbbcccccde"));
     }
 }
