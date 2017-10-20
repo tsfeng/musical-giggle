@@ -6,6 +6,6 @@ package com.tsfeng.cn;
  */
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("sout");
+        System.out.println("helloWorld");
     }
 }
