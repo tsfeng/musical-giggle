@@ -15,7 +15,7 @@ import java.util.List;
  * @author tsfeng
  * @version 创建时间 2017/10/18 17:57
  */
-public class ImageUtil {
+public class ImageUtils {
 
     /**
      * 最大每行图片数量
@@ -88,7 +88,7 @@ public class ImageUtil {
             String[] sizeArr = size.split(",");
             int x = Integer.valueOf(sizeArr[0]);
             int y = Integer.valueOf(sizeArr[1]);
-            BufferedImage sourceBufferedImage = ImageUtil.resize(urlList.get(i), perPicWidth, perPicWidth);
+            BufferedImage sourceBufferedImage = ImageUtils.resize(urlList.get(i), perPicWidth, perPicWidth);
             int[] tempImageArray = new int[perPicWidth*perPicWidth];
             if (sourceBufferedImage != null) {
                 sourceBufferedImage.getRGB(0, 0, perPicWidth, perPicWidth, tempImageArray, 0, perPicWidth);
