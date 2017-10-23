@@ -10,8 +10,8 @@ public interface UserService {
 
     /**
      * 根据name查找User
-     * @param name 名称
+     * @param id id
      * @return User
      */
-    User findByUserName(String name);
+    User findByUserId(Long id);
 }

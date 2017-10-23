@@ -15,9 +15,9 @@ public interface UserRepositoty extends JpaRepository<User, Long>{
 
     /**
      * 根据name查找User
-     * @param name 名称
+     * @param id id
      * @return User
      */
-    @Query("select t from user t where t.name = :name")
-    User findByUserName(@Param("name") String name);
+    @Query("select t from User t where t.id = :id")
+    User findByUserId(@Param("id") Long id);
 }

@@ -3,6 +3,8 @@ package com.tsfeng.cn.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,9 +13,11 @@ import javax.persistence.Table;
  */
 @Data
 @Accessors(chain = true)
+@Entity
 @Table(name = "user")
 public class User {
 
+    @Id
     private Long id;
 
     private String name;
