@@ -19,8 +19,6 @@ public class ConnectionFactory {
 
     private DataSource dataSource;
 
-    public static String DB_DRUID_PROPERTIES = "jdbc.properties";
-
     private interface Singleton {
         ConnectionFactory INSTANCE = new ConnectionFactory();
     }
