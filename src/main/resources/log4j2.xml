@@ -41,6 +41,19 @@
             <AppenderRef ref="databaseAppender"/>
         </Async>
 
+        <!-- 配置日志写入NoSql数据库 MongoDb -->
+        <!--
+        <NoSql name="noSqlDbAppender">
+            <MongoDb databaseName="applicationDb" collectionName="applicationLog" server="mongo.example.org"
+                     username="loggingUser" password="abc123" />
+        </NoSql>
+        -->
+        <!-- 异步写入NoSql数据库 -->
+        <!--
+        <Async name="AsyncNoSqlDbAppender">
+            <AppenderRef ref="noSqlDbAppender"/>
+        </Async>
+        -->
     </Appenders>
     <Loggers>
         <Root level="INFO">
