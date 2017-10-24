@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TRACE DEBUG INFO WARN ERROR -->
+<!-- TRACE DEBUG INFO WARN ERROR OFF -->
 <Configuration status="OFF">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -22,12 +22,32 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t][%5p] - %c(%L) - %msg%n"/>
             <SizeBasedTriggeringPolicy size="5MB"/>
         </RollingFile>
+
+        <!-- 配置日志写入mysql数据库 -->
+        <JDBC name="databaseAppender" tableName="logger_info">
+            <ConnectionFactory class="com.tsfeng.cn.common.ConnectionFactory" method="getDatabaseConnection" />
+            <Column name="thread_name" pattern="%t" />
+            <Column name="class_name" pattern="%c" />
+            <Column name="method_name" pattern="%method" />
+            <Column name="begin_time" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}" />
+            <Column name="logger_level" pattern="%level" />
+            <Column name="logger_name" pattern="%c" />
+            <Column name="logger_message" pattern="%message" />
+            <Column name="logger_throwable" pattern="%ex{full}" />
+        </JDBC>
+
+        <!-- 异步写入数据库 -->
+        <Async name="AsyncDatabaseAppender">
+            <AppenderRef ref="databaseAppender"/>
+        </Async>
+
     </Appenders>
     <Loggers>
         <Root level="INFO">
             <appender-ref ref="RollingInfoFile"/>
             <appender-ref ref="RollingErrorFile"/>
             <appender-ref ref="Console"/>
+            <appender-ref ref="databaseAppender"/>
         </Root>
     </Loggers>
 </Configuration>
