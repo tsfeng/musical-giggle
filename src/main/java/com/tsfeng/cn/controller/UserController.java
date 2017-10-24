@@ -2,6 +2,8 @@ package com.tsfeng.cn.controller;
 
 import com.tsfeng.cn.entity.User;
 import com.tsfeng.cn.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    private static final Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
@@ -25,6 +28,7 @@ public class UserController {
         User user = null;
         try {
             user = userService.findByUserId(id);
+            logger.info(user);
         } catch (Exception e) {
             e.printStackTrace();
         }
