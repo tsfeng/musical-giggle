@@ -1,17 +1,16 @@
 server:
-  port: 8090
-  session:
-    timeout: 30
+    port: 8090
+    session:
+        timeout: 30
 
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:5566/study?characterEncoding=utf8&serverTimezone=UTC&useSSL=true
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    name: druid
+    datasource:
+        druid:
+            url: jdbc:mysql://localhost:5566/study?characterEncoding=utf8&serverTimezone=UTC&useSSL=true
+            username: root
+            password: root
+            driver-class-name: com.mysql.cj.jdbc.Driver
 
-  jpa:
-    show-sql: true
-    database: mysql
+    jpa:
+        show-sql: true
+        database: mysql

@@ -14,10 +14,12 @@ CREATE TABLE `logger_info` (
   `begin_time` varchar(50) DEFAULT NULL,
   `logger_level` varchar(10) DEFAULT NULL,
   `logger_name` varchar(100) DEFAULT NULL,
-  `logger_message` varchar(1000) DEFAULT NULL,
-  `logger_throwable` varchar(500) DEFAULT NULL,
+  `logger_message` text,
+  `logger_throwable` text,
   PRIMARY KEY (`logger_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 
 
 

@@ -60,14 +60,16 @@
             <version>1.5.8.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.4</version>
+            <exclusions>
+                <!-- conflict-->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-autoconfigure</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
