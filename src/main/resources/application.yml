@@ -14,3 +14,7 @@ spring:
     jpa:
         show-sql: true
         database: mysql
+
+    thymeleaf:
+        prefix: classpath:/templates/
+        cache: false
