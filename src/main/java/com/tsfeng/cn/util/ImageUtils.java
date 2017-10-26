@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,14 +49,13 @@ public class ImageUtils {
     private static final String HTTPS_URL = "https://";
 
     public static void main(String[] args) {
-        List<String> urlList = new ArrayList<>();
-        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
-        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
-        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
-        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
-        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
-        String outUrl = "F:\\m.jpg";
-        getMergedPic(urlList, outUrl);
+//        List<String> urlList = new ArrayList<>();
+//        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
+//        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
+//        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
+//        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
+//        urlList.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508403431917&di=d09f81b32790a0951bf92277d6c98dd4&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D758c3cb7d743ad4ba67b4ec4b7327699%2F574e9258d109b3de303d257acabf6c81800a4c26.jpg");
+//        getMergedPic(urlList, "F:\\m.jpg");
     }
 
     /**
@@ -86,8 +84,8 @@ public class ImageUtils {
         for (int i = 0; i < mergePicNum; i++) {
             String size = imageSize[i];
             String[] sizeArr = size.split(",");
-            int x = Integer.valueOf(sizeArr[0]);
-            int y = Integer.valueOf(sizeArr[1]);
+            int x = Integer.parseInt(sizeArr[0]);
+            int y = Integer.parseInt(sizeArr[1]);
             BufferedImage sourceBufferedImage = ImageUtils.resize(urlList.get(i), perPicWidth, perPicWidth);
             int[] tempImageArray = new int[perPicWidth*perPicWidth];
             if (sourceBufferedImage != null) {
