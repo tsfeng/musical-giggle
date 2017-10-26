@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.Bean;
  * @version 创建时间 2017/10/23 16:06
  */
 @SpringBootApplication
-@EnableCaching
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);

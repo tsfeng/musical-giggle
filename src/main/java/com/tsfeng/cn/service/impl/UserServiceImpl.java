@@ -18,6 +18,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findByUserId(Long id) {
-        return userRepositoty.findByUserId(id);
+        return userRepositoty.findOne(id);
     }
 }
