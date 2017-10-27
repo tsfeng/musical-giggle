@@ -3,13 +3,42 @@ server:
     session:
         timeout: 30
 
+publickey: "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJID+BF5h+byvfJZ/RCYluujbiktVaF70KaVXt5nupLX4TJle8ztmEXs+s9XkcmUc2F23dTA0cD6DL0zvR67FOMCAwEAAQ=="
+
 spring:
     datasource:
         druid:
-            url: jdbc:mysql://localhost:5566/study?characterEncoding=utf8&serverTimezone=UTC&useSSL=true
+            url: "jdbc:mysql://localhost:5566/study?characterEncoding=utf8&serverTimezone=UTC&useSSL=true"
             username: root
-            password: root
-            driver-class-name: com.mysql.cj.jdbc.Driver
+            #password: root
+            #加密后的密码
+            password: "FbeFITOSglSx32BRRrGupaN+zOrMqWr6dP9vLyftbVXEf0bPVlsvND+a2IX7Ol+2Om03DL+BbUF25o7O3XGm2A=="
+            driver-class-name: "com.mysql.cj.jdbc.Driver"
+            #启动ConfigFilter
+            filter:
+                config:
+                    enabled: true
+
+
+            #配置 connection-properties，启用加密，配置公钥。
+            connection-properties: config.decrypt=true;config.decrypt.key=${publickey}
+
+            # WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+            web-stat-filter:
+                enabled: true
+                url-pattern: "/*"
+                exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+                session-stat-enable: true
+
+            # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+            stat-view-servlet:
+                enabled: true
+                url-pattern: "/druid/*"
+                reset-enable: false
+                login-username: "admin"
+                login-password: "admin"
+                allow: "127.0.0.1"
+                deny: "127.0.0.2"
 
     jpa:
         show-sql: true
@@ -18,3 +47,4 @@ spring:
     thymeleaf:
         prefix: classpath:/templates/
         cache: false
+
