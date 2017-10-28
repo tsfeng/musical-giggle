@@ -1,3 +1,4 @@
+#https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
 server:
     port: 8090
     session:
@@ -9,8 +10,8 @@ spring:
     datasource:
         druid:
             url: "jdbc:mysql://localhost:5566/study?characterEncoding=utf8&serverTimezone=UTC&useSSL=true"
-            username: root
-            #password: root
+            username: "root"
+            #password: "root"
             #加密后的密码
             password: "FbeFITOSglSx32BRRrGupaN+zOrMqWr6dP9vLyftbVXEf0bPVlsvND+a2IX7Ol+2Om03DL+BbUF25o7O3XGm2A=="
             driver-class-name: "com.mysql.cj.jdbc.Driver"
@@ -43,16 +44,41 @@ spring:
     jpa:
         show-sql: true
         database: mysql
+        hibernate:
+          ddl-auto: "update"
 
+    #
     thymeleaf:
-        prefix: classpath:/templates/
+        #开启模板缓存（默认值：true）
         cache: false
+        #在构建URL时添加到视图名称前的前缀（默认值：classpath:/templates/）
+        prefix: "classpath:/templates/"
+        #在构建URL时添加到视图名称后的后缀（默认值：.html）
+        suffix: ".html"
+        #渲染之前检查模板是否存在（默认值:true）
+        check-template: true
+        #检查模板位置是否正确（默认值:true）
+        check-template-location: true
+        #开启MVC Thymeleaf视图解析（默认值：true）
+        enabled: true
+        #模板编码（默认值：UTF-8）
+        encoding: "utf-8"
+        #要运用于模板之上的模板模式。另见StandardTemplate-ModeHandlers(默认值：HTML5)
+        mode: "HTML5"
+        #Content-Type的值（默认值：text/html）
+        content-type: "text/html"
+        #要被排除在解析之外的视图名称列表，用逗号分隔
+        excluded-view-names:
+        #可解析的视图名称列表，用逗号分隔
+        view-names:
+        #Thymeleaf模板解析器在解析器链中的顺序。默认情况下，它排第一位。顺序从1开始，只有在定义了额外的TemplateResolver Bean时才需要设置这个属性。
+        template-resolver-order:
 
     redis:
         # Redis数据库索引（默认为0）
         database: 0
         # Redis服务器地址
-        host: 127.0.0.1
+        host: "127.0.0.1"
         # Redis服务器连接端口
         port: 6379
         # Redis服务器连接密码（默认为空）
