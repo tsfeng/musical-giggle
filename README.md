@@ -12,5 +12,13 @@ https://projectlombok.org/api/
 # Warning: Field injection is not recommended  
 Spring Team recommends: "Always use constructor based dependency injection in your beans. Always use assertions for mandatory dependencies".
 
+# spring-boot-starter-data-jpa
+
 # log4j2  
 log4j2 VS log4j、logback、sfl4j、JUL、JCL
+
+# druid-spring-boot-starter
+
+# spring-boot-starter-thymeleaf 
+
+# spring-boot-starter-data-redis
