@@ -5,16 +5,17 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author tsfeng
- * @version 创建时间 2017/10/22 09:45
+ * @version 创建时间 2017/10/31 14:58
  */
 @Data
 @Accessors(chain = true)
 @Entity
-@Table(name = "user")
-public class User implements Serializable{
+@Table(name = "city")
+public class City implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +23,7 @@ public class User implements Serializable{
 
     private String name;
 
-    private Integer age;
+    private String code;
 
+    private Date createDate;
 }
