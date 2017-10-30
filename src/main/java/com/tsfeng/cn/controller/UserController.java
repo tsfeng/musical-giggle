@@ -5,6 +5,8 @@ import com.tsfeng.cn.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String getUserList(ModelMap map) {
@@ -36,8 +40,15 @@ public class UserController {
     public User findByUserId(@PathVariable Long id) {
         User user = null;
         try {
-            user = userService.findByUserId(id);
-            logger.info(user);
+            ValueOperations valueOperations = redisTemplate.opsForValue();
+            if (redisTemplate.hasKey(id)) {
+                logger.info(valueOperations.get(id));
+            } else {
+                user = userService.findByUserId(id);
+                logger.info(user);
+                valueOperations.set(id, user);
+                logger.info("redis update ok");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

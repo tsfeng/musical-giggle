@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @author tsfeng
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 @Accessors(chain = true)
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
 
     @Id
     private Long id;
