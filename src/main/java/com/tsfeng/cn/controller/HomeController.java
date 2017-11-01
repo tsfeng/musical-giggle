@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Enumeration;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author tsfeng
@@ -19,18 +19,20 @@ public class HomeController {
 
     private static final Logger logger = LogManager.getLogger(HomeController.class);
 
+    private static final AtomicLong VISIT_NUM = new AtomicLong();
+
     @RequestMapping("/")
     @ResponseBody
-    public String index(HttpServletRequest request, HttpServletResponse response){
+    public String index(HttpServletRequest request){
         logger.info("我是info信息");
         logger.warn("我是warn信息");
         logger.error("我是error信息");
         logger.fatal("我是fatal信息");
         Enumeration<String> attributeNames = request.getHeaderNames();
         while (attributeNames.hasMoreElements()) {
-            String name = (String) attributeNames.nextElement();
+            String name = attributeNames.nextElement();
             System.out.println(name + ":" + request.getHeader(name));
         }
-        return "welcome";
+        return VISIT_NUM.incrementAndGet() + "：welcome";
     }
 }
