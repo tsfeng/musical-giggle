@@ -9,6 +9,7 @@ Ctrl + ALT + O   ========= Ctrl + Shift + O     优化导入的类和包
 Ctrl + Shift + Z ========= Ctrl + Y     与Ctrl + Z相反
 Ctrl + ALT + T   =========    try/catch等
 Ctrl + O         =========    快速重写
+Ctrl + J         =========    fori
 
 查找定位快捷键
 Ctrl + F12       ========= Ctrl + O     显示类中方法和属性的大纲，能快速定位类的方法和属性
