@@ -23,23 +23,23 @@
             <SizeBasedTriggeringPolicy size="5MB"/>
         </RollingFile>
 
-        <!-- 配置日志写入mysql数据库 -->
-        <JDBC name="databaseAppender" tableName="logger_info">
-            <ConnectionFactory class="com.tsfeng.cn.common.ConnectionFactory" method="getDatabaseConnection" />
-            <Column name="thread_name" pattern="%t" />
-            <Column name="class_name" pattern="%c" />
-            <Column name="method_name" pattern="%method" />
-            <Column name="begin_time" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}" />
-            <Column name="logger_level" pattern="%level" />
-            <Column name="logger_name" pattern="%c" />
-            <Column name="logger_message" pattern="%message" />
-            <Column name="logger_throwable" pattern="%ex{full}" />
-        </JDBC>
+<!--        &lt;!&ndash; 配置日志写入mysql数据库 &ndash;&gt;-->
+<!--        <JDBC name="databaseAppender" tableName="logger_info">-->
+<!--            <ConnectionFactory class="com.tsfeng.cn.common.ConnectionFactory" method="getDatabaseConnection" />-->
+<!--            <Column name="thread_name" pattern="%t" />-->
+<!--            <Column name="class_name" pattern="%c" />-->
+<!--            <Column name="method_name" pattern="%method" />-->
+<!--            <Column name="begin_time" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}" />-->
+<!--            <Column name="logger_level" pattern="%level" />-->
+<!--            <Column name="logger_name" pattern="%c" />-->
+<!--            <Column name="logger_message" pattern="%message" />-->
+<!--            <Column name="logger_throwable" pattern="%ex{full}" />-->
+<!--        </JDBC>-->
 
-        <!-- 异步写入数据库 -->
-        <Async name="AsyncDatabaseAppender">
-            <AppenderRef ref="databaseAppender"/>
-        </Async>
+<!--        &lt;!&ndash; 异步写入数据库 &ndash;&gt;-->
+<!--        <Async name="AsyncDatabaseAppender">-->
+<!--            <AppenderRef ref="databaseAppender"/>-->
+<!--        </Async>-->
 
         <!-- 配置日志写入NoSql数据库 MongoDb -->
         <!--
@@ -60,7 +60,7 @@
             <appender-ref ref="RollingInfoFile"/>
             <appender-ref ref="RollingErrorFile"/>
             <appender-ref ref="Console"/>
-            <appender-ref ref="databaseAppender"/>
+<!--            <appender-ref ref="databaseAppender"/>-->
         </Root>
     </Loggers>
 </Configuration>

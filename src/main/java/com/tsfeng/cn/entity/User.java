@@ -1,5 +1,6 @@
 package com.tsfeng.cn.entity;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,7 +15,9 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @Entity
 @Table(name = "user")
-public class User implements Serializable{
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 6334337617976139963L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +27,5 @@ public class User implements Serializable{
 
     private Integer age;
 
+    private JSONObject jsonObject;
 }

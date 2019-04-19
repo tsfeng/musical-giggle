@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
  * @author tsfeng
  * @version 创建时间 2017/10/23 14:11
@@ -23,18 +25,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
+    @Resource
     private RedisTemplate redisTemplate;
 
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String getUserList(ModelMap map) {
-        map.addAttribute("name", "World ");
+        map.addAttribute("name", "欢迎使用Thymeleaf");
+        logger.info("hello world!");
         return "hello";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     @ResponseBody
     public User findByUserId(@PathVariable Long id) {
+        logger.info("[id=" + id + "]");
         User user = null;
         try {
             ValueOperations valueOperations = redisTemplate.opsForValue();

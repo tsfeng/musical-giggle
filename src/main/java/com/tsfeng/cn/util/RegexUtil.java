@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * @author tsfeng
  * @version 创建时间 2017/10/20 14:22
  */
-public class RegexUtils {
+public class RegexUtil {
 
     /**
      * 网址（URL）

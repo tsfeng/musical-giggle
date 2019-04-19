@@ -1,6 +1,6 @@
 package com.tsfeng.cn;
 
-import com.tsfeng.cn.util.RegexUtils;
+import com.tsfeng.cn.util.RegexUtil;
 
 /**
  * @author tsfeng
@@ -10,10 +10,10 @@ public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("helloWorld");
 
-        System.out.println("isEmail:" + RegexUtils.isEmail("1@1.1c"));
-        System.out.println("isUrl:" + RegexUtils.isUrl("https://b"));
-        System.out.println("isIpAddress:" + RegexUtils.isIpAddress("192.111.1.12"));
-        System.out.println("isChinese:" + RegexUtils.isChinese("中"));
-        System.out.println("isLegalAccount:" + RegexUtils.isLegalAccount("aaaaabbbbbcccccde"));
+        System.out.println("isEmail:" + RegexUtil.isEmail("1@1.1c"));
+        System.out.println("isUrl:" + RegexUtil.isUrl("https://b"));
+        System.out.println("isIpAddress:" + RegexUtil.isIpAddress("192.111.1.12"));
+        System.out.println("isChinese:" + RegexUtil.isChinese("中"));
+        System.out.println("isLegalAccount:" + RegexUtil.isLegalAccount("aaaaabbbbbcccccde"));
     }
 }
